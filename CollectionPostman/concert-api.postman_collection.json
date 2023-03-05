@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "a906ad49-a5a4-44fd-8064-0f3f5a6f53eb",
+		"name": "concert-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "récuperer salles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/salles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"salles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer une salle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/salles/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"salles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crée une nouvelle salle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salId\": 1,\r\n    \"salNom\": \"RestoCoeur\",\r\n    \"salAdresse\": \"15 rue Lanredec, 29200, Brest\",\r\n    \"salCapacite\": 10,\r\n    \"salNomGestionnaire\": \"Colucci\",\r\n    \"salPrenomGestionnaire\": \"Michel\",\r\n    \"salAssociation\": \"Les Restos du Coeur\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/salles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"salles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer une salle",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/salles/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"salles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crée un concert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"conId\": \"6\",\r\n    \"conDateDebut\": \"2023-02-21 22:05:00\",\r\n    \"conDateFin\": \"2023-02-21 23:35:00\",\r\n    \"soiId\": \"1\",\r\n    \"groId\": \"3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/concerts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"concerts"
+					],
+					"query": [
+						{
+							"key": "groupe",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "salle",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "heure",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "duree",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "prix",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "- Vérifier si le créneau n'est pas déjà réservé pour la salle.\r\n\r\n- Vérifier qu'un autre concert du même groupe n'est pas programmé sur le même horaire"
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer concert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/concerts/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"concerts",
+						"1"
+					],
+					"query": [
+						{
+							"key": "concert_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer concerts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/concerts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"concerts"
+					],
+					"query": [
+						{
+							"key": "concert_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer articles concert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/concerts/articles/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"concerts",
+						"articles",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer photos concert",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"infCible\": \"2\",\r\n    \"infContenu\":\"Le Concert numero deux\",\r\n    \"infDate\" : \"24-02-2022\",\r\n    \"infNom\": \"Article concert deuxs\",\r\n    \"infType\": \"concert\",\r\n    \"infTypeContenu\": \"article\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/concerts/photos/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"concerts",
+						"photos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "récuperer soirees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/soirees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"soirees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Créer information concert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"infType\": \"concert\",\r\n  \"infCible\": 3,\r\n  \"infNom\": \"Whilemina Dominguez\",\r\n  \"infDate\": \"21-02-22\",\r\n  \"infTypeContenu\": \"article\",\r\n  \"infContenu\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus neque eget tempor suscipit. Duis vestibulum sagittis dui. Donec ac imperdiet leo. Duis velit ante, tempor non dui sit amet, rutrum rhoncus arcu. Duis vitae pretium nisi. Mauris quam magna, tempus non turpis ac, efficitur convallis ante. Mauris aliquam purus eget molestie porta. Pellentesque sit amet porttitor magna. Proin euismod accumsan tortor, a imperdiet leo dignissim et. Cras et magna vel lorem fringilla pellentesque. Donec ipsum eros, eleifend sit amet odio quis, placerat tempor erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/concerts/informations",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"concerts",
+						"informations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "créer salle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salId\" : \"8\",\r\n    \"salNom\": \"RunArePuns\",\r\n    \"salAdresse\": \"16, 29290, Briec\",\r\n    \"salCapacite\": 15,\r\n    \"salNomGestionnaire\": \"Murphy\",\r\n    \"salPrenomGestionnaire\": \"Eddy\",\r\n    \"salAssociation\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/salles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"salles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "récuperer concert d'une soiree",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/soirees/1/concerts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"soirees",
+						"1",
+						"concerts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "créer soiree",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"soiId\": 4,\r\n        \"soiNom\": \"TheSoiree4\",\r\n        \"soiDateDebut\": \"2023-04-26 11:32:37\",\r\n        \"soiDateFin\": \"2023-04-26 12:32:37\",\r\n        \"salId\": 2,\r\n        \"soiPrix\": 35.0\r\n    }"
+				},
+				"url": {
+					"raw": "{{url}}/soirees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"soirees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "récuperer concert d'une salle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/salles/1/concerts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"salles",
+						"1",
+						"concerts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer une soiree",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/soirees/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"soirees",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer un concert",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/concerts/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"concerts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
